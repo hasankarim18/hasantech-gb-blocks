@@ -1,0 +1,1 @@
+{"version":3,"file":"heading/index.css","mappings":";;;AAAA;EACE;EACA;EACA;EACA;EACA;AACF,C","sources":["webpack://hasantech-gb-blocks/./blocks/src/heading/edit.scss"],"sourcesContent":[".wp-block-gb-heading {\r\n  outline: none;\r\n  margin-bottom: 1em;\r\n  padding: 0.5em;\r\n  border-left: 4px solid #007cba;\r\n  background: #f0f6fc;\r\n}\r\n"],"names":[],"sourceRoot":""}

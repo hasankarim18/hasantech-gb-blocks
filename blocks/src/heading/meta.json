@@ -1,0 +1,8 @@
+{
+  "name": "GB up block meta",
+  "description": "A block for adding styled headings.",
+  "author": "Hasan",
+  "version": "1.0.0",
+  "license": "GPL-2.0-or-later",
+  "textdomain": "gb-up"
+}

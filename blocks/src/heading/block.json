@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "gb-static/heading",
+  "title": "GB static Heading",
+  "category": "text",
+  "icon": "editor-textcolor",
+  "description": "A customizable heading block.",
+  "keywords": ["heading", "title", "text", "gb"],
+  "textdomain": "gb-up",
+  "attributes": {
+    "content": {
+      "type": "string",
+      "default": "Gb Up Heading"
+    },
+    "level": {
+      "type": "number",
+      "default": 2
+    },
+    "align": {
+      "type": "string",
+      "default": "left"
+    },
+    "color": {
+      "type": "string",
+      "default": "#444"
+    }
+  },
+  "supports": {
+    "align": ["left", "center", "right"]
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}
