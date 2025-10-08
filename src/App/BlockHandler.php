@@ -20,7 +20,18 @@ class BlockHandler
 
     public function register_blocks()
     {
-        error_log('Hello, World! register_blocks is running!');
+        // wordpress 6.8
+        // if (function_exists('wp_register_block_types_from_metadata_collection')) {
+        //     wp_register_block_types_from_metadata_collection(HNTGB_PATH . 'blocks/build', HNTGB_PATH . 'blocks/build/blocks-manifest.php');
+
+        //     return;
+        // }
+
+        // wordpress 6.7
+        // if (function_exists('wp_register_block_metadata_collection')) {
+        //     wp_register_block_metadata_collection(HNTGB_PATH . 'blocks/build', HNTGB_PATH . 'blocks/build/blocks-manifest.php');
+        // }
+
 
         $manifest_blocks = require HNTGB_PATH . 'blocks/build/blocks-manifest.php';
 

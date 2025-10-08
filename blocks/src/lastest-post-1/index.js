@@ -1,9 +1,8 @@
 import { registerBlockType } from "@wordpress/blocks";
 import Edit from "./edit";
-import Save from "./save";
 import "./style.scss";
 
-registerBlockType("hasantech-gb-blocks/card1", {
+registerBlockType("hasantech-gb-blocks/latest-post-1", {
   edit: Edit,
-  save: Save,
+  save: () => null,
 });

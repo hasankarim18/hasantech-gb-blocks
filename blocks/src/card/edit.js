@@ -1,70 +1,119 @@
 import {
   AlignmentToolbar,
-  BlockControls,
   InspectorControls,
+  MediaUpload,
   RichText,
   useBlockProps,
 } from "@wordpress/block-editor";
-import { ColorPicker, PanelBody, SelectControl } from "@wordpress/components";
-import { __ } from "@wordpress/i18n";
+import { Button, ColorPicker, PanelBody } from "@wordpress/components";
+import CustomLink from "./components/CustomLink";
 import "./edit.scss";
 
-export default function Edit({ attributes, setAttributes }) {
-  const { content, level, align, color } = attributes;
-  const tagName = `h${level}`;
+export default function Edit({ attributes, setAttributes, supports }) {
+  const {
+    title,
+    paragraph,
+    image,
+    buttonText,
+    buttonLink,
+    cardBackground,
+    cardTextColor,
+    borderRadius,
+    boxShadow,
+    boxShadowOnHover,
+    authorName,
+    authorImage,
+    authorLink,
+    date,
+    titleAlign,
+    paragraphAlign,
+    buttonAlign,
+    align,
+  } = attributes;
 
   return (
-    <>
-      <BlockControls>
+    <div {...useBlockProps()}>
+      {/* <BlockControls>
         <AlignmentToolbar
           value={align}
-          onChange={(newAlign) => {
-            setAttributes({ align: newAlign });
-          }}
+          onChange={(value) => setAttributes({ align: value })}
         />
-      </BlockControls>
+      </BlockControls> */}
       <InspectorControls>
-        <PanelBody
-          title={__("Heading settings", "custom-heading")}
-          initialOpen={true}
-        >
-          <SelectControl
-            label={__("Heading level", "gb-static")}
-            value={level}
-            options={[
-              { label: "H1", value: 1 },
-              { label: "H2", value: 2 },
-              { label: "H3", value: 3 },
-              { label: "H4", value: 4 },
-              { label: "H5", value: 5 },
-              { label: "H6", value: 6 },
-            ]}
-            onChange={(newLevel) => {
-              setAttributes({ level: parseInt(newLevel) });
+        <PanelBody title="Image Upload">
+          <MediaUpload
+            onSelect={(media) => {
+              setAttributes({ image: media.url });
             }}
+            allowedTypes={["image"]}
+            value={image}
+            render={({ open }) => (
+              <Button onClick={open}>
+                {image ? "Change Image" : "Upload Image"}
+              </Button>
+            )}
           />
-
-          {/* ColorPicker */}
+          {image ? <img width={100} height={100} src={image} /> : null}
+        </PanelBody>
+        <PanelBody title="Title Alignment">
+          <AlignmentToolbar
+            value={titleAlign}
+            onChange={(value) => setAttributes({ titleAlign: value })}
+          />
+        </PanelBody>
+        <PanelBody title="Paragraph Alignment">
+          <AlignmentToolbar
+            value={paragraphAlign}
+            onChange={(value) => setAttributes({ paragraphAlign: value })}
+          />
+        </PanelBody>
+        <PanelBody title="Text Color">
           <ColorPicker
-            label={__("Heading color", "gb-static")}
-            value={color}
-            onChange={(newColor) => {
-              setAttributes({ color: newColor });
-            }}
+            label="Text color"
+            value={cardTextColor}
+            onChange={(value) => setAttributes({ cardTextColor: value })}
           />
         </PanelBody>
       </InspectorControls>
-      <div style={{}}>
-        <RichText
-          {...useBlockProps()}
-          tagName={tagName}
-          value={content}
-          onChange={(updatedText) => {
-            setAttributes({ content: updatedText });
-          }}
-          style={{ textAlign: align }}
-        />
+      <div
+        style={{
+          background:
+            "radial-gradient(circle,rgba(82, 60, 69, 1) 0%, rgba(14, 61, 115, 1) 100%)",
+        }}
+        className="hgb-card-1"
+      >
+        <div className="hgb-card-1-wrapper">
+          <div className="hgb-card-1-image">
+            <img src={image} alt="cute girs" />
+          </div>
+          {/* content */}
+          <div className="hgb_card_1_contents">
+            <RichText
+              style={{ textAlign: titleAlign, color: cardTextColor }}
+              value={title}
+              onChange={(value) => setAttributes({ title: value })}
+              tagName="h2"
+            />
+            <RichText
+              style={{ textAlign: paragraphAlign, color: cardTextColor }}
+              value={paragraph}
+              onChange={(value) => setAttributes({ paragraph: value })}
+              tagName="p"
+            />
+
+            <div>
+              <CustomLink href="#"> View Details </CustomLink>
+            </div>
+            <div className="hgb_card_1_author">
+              <img src="https://cdn.pixabay.com/photo/2025/09/24/17/10/squirrel-9853377_960_720.jpg" />
+              <div>
+                <div className="hgb_card_1_author_name">Author Name</div>
+                <div className="hgb_card_1_author_date">Date</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </>
+    </div>
   );
 }
