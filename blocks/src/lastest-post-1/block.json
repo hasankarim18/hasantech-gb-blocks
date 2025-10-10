@@ -9,9 +9,13 @@
   "keywords": ["title", "text", "gb", "post", "latest posts 1"],
   "textdomain": "hasantech-gb-blocks",
   "attributes": {
+    "sectionTitle": {
+      "type": "string",
+      "default": "Latest Posts 1"
+    },
     "postType": {
       "type": "string",
-      "default": "post"
+      "default": "dummy"
     },
     "postPerPage": {
       "type": "number",
@@ -26,10 +30,7 @@
       "default": false
     }
   },
-  "supports": {
-    "html": false,
-    "align": ["left", "center", "right"]
-  },
+
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",

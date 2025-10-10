@@ -164,9 +164,13 @@ return array(
 		),
 		'textdomain' => 'hasantech-gb-blocks',
 		'attributes' => array(
+			'sectionTitle' => array(
+				'type' => 'string',
+				'default' => 'Latest Posts 1'
+			),
 			'postType' => array(
 				'type' => 'string',
-				'default' => 'post'
+				'default' => 'dummy'
 			),
 			'postPerPage' => array(
 				'type' => 'number',
@@ -179,14 +183,6 @@ return array(
 			'displayExcerpt' => array(
 				'type' => 'boolean',
 				'default' => false
-			)
-		),
-		'supports' => array(
-			'html' => false,
-			'align' => array(
-				'left',
-				'center',
-				'right'
 			)
 		),
 		'editorScript' => 'file:./index.js',

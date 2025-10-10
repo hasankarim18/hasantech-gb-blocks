@@ -15,9 +15,13 @@
   ],
   "textdomain": "hasantech-gb-blocks",
   "attributes": {
+    "sectionTitle": {
+      "type": "string",
+      "default": "Latest Posts 1"
+    },
     "postType": {
       "type": "string",
-      "default": "post"
+      "default": "dummy"
     },
     "postPerPage": {
       "type": "number",
@@ -31,14 +35,6 @@
       "type": "boolean",
       "default": false
     }
-  },
-  "supports": {
-    "html": false,
-    "align": [
-      "left",
-      "center",
-      "right"
-    ]
   },
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
