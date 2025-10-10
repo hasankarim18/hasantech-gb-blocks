@@ -6,6 +6,14 @@
       "Hasan\\HasantechGbBlocks\\": "src/"
     }
   },
+  "scripts": {
+    "dev": [
+      "composer install"
+    ],
+    "build": [
+      "@composer --no-plugins --no-interaction install --no-scripts --no-dev"
+    ]
+  },
   "authors": [
     {
       "name": "hasankarim18",

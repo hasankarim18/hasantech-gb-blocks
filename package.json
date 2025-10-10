@@ -5,7 +5,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "block:start": "wp-scripts start --blocks-manifest --webpack-src-dir=./blocks/src --output-path=./blocks/build",
-    "block:build": "wp-scripts build --blocks-manifest --webpack-src-dir=./blocks/src --output-path=./blocks/build"
+    "block:build": "wp-scripts build --blocks-manifest --webpack-src-dir=./blocks/src --output-path=./blocks/build",
+    "zip": "node zip.build.cjs",
+    "wp-cli-pot": "wp i18n make-pot . i18n/hasantech-gb-blocks.pot"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +17,7 @@
     "@wordpress/components": "^30.5.0",
     "@wordpress/data": "^10.32.0",
     "@wordpress/scripts": "^30.25.0",
+    "archiver": "^7.0.1",
     "css-minimizer-webpack-plugin": "^7.0.2",
     "mini-css-extract-plugin": "^2.9.4",
     "postcss-loader": "^8.2.0",
